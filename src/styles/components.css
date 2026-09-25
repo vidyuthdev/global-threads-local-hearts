@@ -986,6 +986,33 @@ p.bento__quote {
   background: var(--bg);
 }
 
+/* portrait — the tags read as ID badges, so each one carries a face.
+   The source files are square, so a circle needs no art direction. */
+.tag-card__photo {
+  align-self: center;
+  width: clamp(74px, 9vw, 92px);
+  aspect-ratio: 1;
+  margin-bottom: 0.3rem;
+  border: 1.5px solid var(--line-mid);
+  border-radius: 50%;
+  background: var(--bg);
+  object-fit: cover;
+  outline: 1.5px dashed var(--line);
+  outline-offset: 3px;
+}
+
+/* Fallback for a member whose photo hasn't arrived: their initials, set in
+   the display face so the gap reads as a choice rather than a missing image. */
+.tag-card__photo--empty {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+}
+
 .tag-hang:hover .tag-card,
 .tag-hang:focus-within .tag-card {
   animation: tag-swing 1.5s var(--ease);

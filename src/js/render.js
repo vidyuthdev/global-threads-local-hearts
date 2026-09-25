@@ -13,6 +13,17 @@ const slug = (text) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 
+/** 'Abhi Tokala' -> 'AT'. Used when a team member has no photo yet. */
+const initials = (name) =>
+  String(name)
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0] || '')
+    .filter(Boolean)
+    .slice(0, 2)
+    .join('')
+    .toUpperCase()
+
 /** Drop the whole section when its list in the config is empty, so clearing a
     list out doesn't leave a heading with nothing under it. */
 const hideSection = (host) => (host.closest('section') || host).remove()
@@ -311,20 +322,32 @@ const renderers = {
       .join('')
   },
 
+  /* The tags read as ID badges, so each one carries a portrait. 'photo' is
+     optional: without it the badge falls back to the person's initials, which
+     keeps a half-photographed team looking deliberate rather than broken. */
   team(host) {
     host.innerHTML = config.team
-      .map(
-        (person) => `
+      .map((person) => {
+        const portrait = person.photo
+          ? `<img class="tag-card__photo" src="${esc(person.photo)}"
+                  alt="${esc(person.photoAlt || person.name)}"
+                  width="560" height="560" loading="lazy" decoding="async" />`
+          : `<span class="tag-card__photo tag-card__photo--empty" aria-hidden="true">${esc(
+              initials(person.name)
+            )}</span>`
+
+        return `
         <li class="tag-hang" data-reveal>
           <span class="tag-hang__string" aria-hidden="true"></span>
           <article class="tag-card">
+            ${portrait}
             <p class="tag-card__num">${esc(person.tag)}</p>
             <h3 class="tag-card__name">${esc(person.name)}</h3>
             <p class="tag-card__role">${esc(person.role)}</p>
             <p class="tag-card__text">${esc(person.text)}</p>
           </article>
         </li>`
-      )
+      })
       .join('')
   },
 

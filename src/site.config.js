@@ -367,11 +367,36 @@ export const config = {
      TODO: replace with your real names and roles.
      'tag' is the small text at the top of each hanging tag. Have fun with it.
      Copy a block from { to } to add another member.
+
+     'photo' is optional — a square picture in public/team/, written as
+     '/team/name.jpg'. Leave it out and the tag shows the person's initials
+     instead, so a team that isn't fully photographed still looks deliberate.
      ------------------------------------------------------------------------ */
   team: [
-    { name: 'Vidyuth Ashok Kumar', role: 'Co-founder', tag: 'Since April 2026',  text: 'Started the drive with Abhi in April. Handles the partnership with Heart for Monroe, the deliveries, and the trunk of the car.' },
-    { name: 'Abhi Tokala',         role: 'Co-founder', tag: 'Since April 2026',  text: 'Co-founded the drive in April. Runs outreach, collection days, and the sorting standard we refuse to lower.' },
-    { name: 'Anish Alleti',        role: 'Volunteer',  tag: 'Since August 2026', text: 'Joined for the August sort and kept coming back. Sorts, folds, labels, and picks the playlist.' },
+    {
+      name: 'Vidyuth Ashok Kumar',
+      role: 'Co-founder',
+      tag: 'Since April 2026',
+      text: 'Started the drive with Abhi in April. Handles the partnership with Heart for Monroe, the deliveries, and the trunk of the car.',
+      photo: '/team/vidyuth.jpg',
+      photoAlt: 'Vidyuth, one of the two founders of the drive.',
+    },
+    {
+      name: 'Abhi Tokala',
+      role: 'Co-founder',
+      tag: 'Since April 2026',
+      text: 'Co-founded the drive in April. Runs outreach, collection days, and the sorting standard we refuse to lower.',
+      photo: '/team/abhi.jpg',
+      photoAlt: 'Abhi, one of the two founders of the drive.',
+    },
+    {
+      name: 'Anish Alleti',
+      role: 'Volunteer',
+      tag: 'Since August 2026',
+      text: 'Joined for the August sort and kept coming back. Sorts, folds, labels, and picks the playlist.',
+      // TODO: add a photo — drop a square picture in public/team/ and set
+      // photo: '/team/anish.jpg' here.
+    },
   ],
 
   // TODO: your CAS supervisor / coordinator. Delete this block if you'd rather

@@ -118,6 +118,22 @@ Update `lastUpdated` whenever you change the numbers.
 Please get permission before posting photos of people, and don't photograph
 people receiving donations.
 
+### Adding a team photo
+
+The team tags on `team.html` are laid out like ID badges, so each one can
+carry a portrait.
+
+1. Crop the picture square and save it into `public/team/` — around 560×560
+   is plenty.
+2. In `site.config.js`, section 14, add two lines to that person's block:
+   ```js
+   photo: '/team/anish.jpg',
+   photoAlt: 'Anish, who joined the drive in August.',
+   ```
+
+Leave `photo` out and the badge shows the person's initials instead, so you
+can add photos one at a time without the page looking half-finished.
+
 ### The social-media preview image
 
 `public/og-image.png` is what appears when someone shares a link on Instagram,
