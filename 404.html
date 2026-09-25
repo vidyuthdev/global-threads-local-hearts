@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Page not found | Global Threads, Local Hearts</title>
+    <meta name="description" content="That page doesn’t exist. Here’s the way back." />
+    <meta name="robots" content="noindex" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1524" media="(prefers-color-scheme: dark)" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      try {
+        var t = localStorage.getItem('gtlh-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header data-site-header></header>
+
+    <noscript>
+      <nav class="noscript-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="cause.html">The Cause</a>
+        <a href="story.html">Our Story</a>
+        <a href="team.html">Team</a>
+        <a href="thanks.html">Gratitude</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </noscript>
+
+    <main id="main" class="shell">
+      <section class="section" data-hero>
+        <div class="container notfound">
+          <p class="eyebrow" data-reveal>Error 404</p>
+          <p class="notfound__code" data-reveal>404</p>
+          <h1 data-lines style="font-size:var(--fs-2xl)">
+            <span class="line"><span>A dropped <em>stitch</em>.</span></span>
+          </h1>
+          <p class="lede" data-reveal>
+            This page doesn’t exist, or it moved. The donation details definitely still do.
+          </p>
+          <div class="btn-row" data-reveal>
+            <a class="btn btn--lg" href="donate.html">
+              Donate Clothes
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="index.html">Back home</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer data-site-footer></footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

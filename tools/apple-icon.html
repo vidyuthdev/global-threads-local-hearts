@@ -1,0 +1,36 @@
+<!doctype html>
+<!--
+  Source for public/apple-touch-icon.png (the icon iOS uses when someone adds
+  the site to their home screen). Not part of the built site.
+
+  Regenerate with:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless=new --disable-gpu --hide-scrollbars \
+      --force-device-scale-factor=1 --window-size=180,180 \
+      --screenshot="$PWD/public/apple-touch-icon.png" \
+      "file://$PWD/tools/apple-icon.html"
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { margin: 0 }
+      body {
+        width: 180px;
+        height: 180px;
+        overflow: hidden;
+        background: #f5f0e6; /* iOS adds its own rounded corners */
+        display: grid;
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="142" height="142" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8.9 3.6 4.9 5.1a2.9 2.9 0 0 0-1.8 2.3l-.6 4.2 2.4.8V20a1.2 1.2 0 0 0 1.2 1.2h11.6A1.2 1.2 0 0 0 19 20v-7.6l2.4-.8-.6-4.2a2.9 2.9 0 0 0-1.8-2.3l-4-1.5" stroke="#141F33" stroke-width="1.7"/>
+        <path d="M8.9 3.6 12 6.2l3.1-2.6" stroke="#141F33" stroke-width="1.7"/>
+        <path d="M12 6.2v6.4M12 18.3v2.9" stroke="#141F33" stroke-width="1.7"/>
+        <path d="M12 17.9 9.5 15.4a1.77 1.77 0 0 1 2.5-2.5 1.77 1.77 0 0 1 2.5 2.5Z" fill="#C25B3A" stroke="#C25B3A" stroke-width="1.7"/>
+    </svg>
+  </body>
+</html>

@@ -1,0 +1,567 @@
+/* ==========================================================================
+   LAYOUT — container, sections, header, footer, the scrolling thread
+   ========================================================================== */
+
+.shell {
+  position: relative;
+  overflow: clip; /* stops the thread SVG creating sideways scroll */
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.section--tight {
+  padding-block: clamp(2.75rem, 5.5vw, 5.5rem);
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.85rem, 1.8vw, 1.35rem);
+  margin-bottom: clamp(2.25rem, 4.5vw, 4rem);
+}
+
+.section__head--split {
+  gap: clamp(1.25rem, 3vw, 3.5rem);
+}
+
+@media (min-width: 900px) {
+  .section__head--split {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .section__head--split > :first-child {
+    max-width: 62%;
+  }
+  .section__head--split > :last-child {
+    max-width: 34%;
+    padding-bottom: 0.35rem;
+  }
+}
+
+/* ---- Number + title pairing used across pages ------------------------ */
+.numbered {
+  display: flex;
+  gap: clamp(0.9rem, 2vw, 1.75rem);
+  align-items: baseline;
+}
+
+.numbered__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--accent);
+  line-height: 1;
+  flex: none;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   THE THREAD — one continuous line that draws itself as you scroll
+   ========================================================================== */
+/* z-index 1 puts the thread above section *backgrounds* (which paint at
+   z-index auto) while section *content* sits at z-index 2, above the thread. */
+.thread-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.thread-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.thread-trace {
+  fill: none;
+  stroke: var(--thread-trace);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.thread-live {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+
+/* The drawn portion is stitched, not solid */
+.thread-stitch {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 3.4;
+  stroke-dasharray: 7 13;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.5;
+}
+
+.thread-needle circle {
+  fill: var(--thread);
+}
+
+.thread-needle .halo {
+  fill: var(--thread);
+  opacity: 0.18;
+}
+
+/* On phones the thread crosses behind body copy, so it steps back a little. */
+@media (max-width: 760px) {
+  .thread-live {
+    opacity: 0.55;
+  }
+  .thread-stitch {
+    opacity: 0.3;
+  }
+  .thread-trace {
+    opacity: 0.6;
+  }
+}
+
+/* Content sits above the thread */
+.section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bands that the thread should pass *behind* rather than over */
+.marquee,
+.cta {
+  z-index: 2;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  /* Above .mobile-menu (950) so the close button stays visible and tappable
+     while the menu is open — the menu reserves header-height of top padding
+     for exactly this. */
+  z-index: 960;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+/* Fallback for browsers without color-mix */
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .site-header {
+    background: var(--bg);
+  }
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .site-header {
+    backdrop-filter: blur(14px) saturate(1.3);
+  }
+}
+
+.site-header[data-scrolled='true'] {
+  border-bottom-color: var(--line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-h);
+  padding-block: 0.6rem;
+}
+
+/* ---- Wordmark -------------------------------------------------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex: none;
+}
+
+.brand:hover {
+  color: inherit;
+}
+
+.brand__mark {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  color: var(--accent);
+  transition: rotate var(--dur-slow) var(--ease);
+}
+
+.brand:hover .brand__mark {
+  rotate: -12deg;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.16rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brand__sub {
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.28em;
+}
+
+/* ---- Desktop nav ----------------------------------------------------- */
+.nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.8vw, 1.6rem);
+}
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: 0.4rem 0.15rem;
+  font-size: var(--fs-sm);
+  font-weight: 480;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Stitched underline that sews itself in on hover */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.05rem;
+  height: 1.5px;
+  background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur) var(--ease);
+}
+
+.nav__link:hover::after,
+.nav__link:focus-visible::after {
+  scale: 1 1;
+}
+
+.nav__link[aria-current='page'] {
+  color: var(--accent-text);
+}
+
+.nav__link[aria-current='page']::after {
+  scale: 1 1;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+}
+
+/* Scoped to .site-header so it outranks `.btn { display: inline-flex }`,
+   which is defined later in components.css. */
+.site-header .header__cta {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .nav {
+    display: block;
+  }
+  .site-header .header__cta {
+    display: inline-flex;
+  }
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* ---- Theme toggle ---------------------------------------------------- */
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--line);
+  color: var(--text);
+  background: transparent;
+  transition: background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease),
+    rotate var(--dur) var(--ease);
+}
+
+.icon-btn:hover {
+  background: var(--surface);
+  border-color: var(--line-mid);
+}
+
+.icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+  display: block;
+}
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .icon-moon {
+    display: block;
+  }
+  :root:not([data-theme='light']) .theme-toggle .icon-sun {
+    display: none;
+  }
+}
+
+/* ---- Mobile menu ----------------------------------------------------- */
+/* Flex, not grid: grid rows would stretch to fill the button, putting the
+   bars further apart than the 6.5px the X animation translates them. */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--line);
+  padding: 0 10px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text);
+  transition: translate var(--dur) var(--ease), rotate var(--dur) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(1) {
+  translate: 0 6.5px;
+  rotate: 45deg;
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(3) {
+  translate: 0 -6.5px;
+  rotate: -45deg;
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--header-h) + 2.5rem) var(--gutter) 2.5rem;
+  background: var(--bg);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mobile-menu[data-open='true'] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--line);
+}
+
+.mobile-menu__item {
+  border-bottom: 1.5px solid var(--line);
+}
+
+.mobile-menu__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.85rem, 2.6vw, 1.2rem) 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: 1;
+  text-decoration: none;
+  translate: 0 14px;
+  opacity: 0;
+  transition: translate var(--dur-slow) var(--ease), opacity var(--dur-slow) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.mobile-menu[data-open='true'] .mobile-menu__link {
+  translate: 0 0;
+  opacity: 1;
+}
+
+.mobile-menu__num {
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--track-label);
+  color: var(--text-muted);
+  flex: none;
+}
+
+.mobile-menu__link[aria-current='page'] {
+  color: var(--accent-text);
+}
+
+.mobile-menu__foot {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 960px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: clamp(3rem, 6vw, 5.5rem) 2rem;
+  --line: rgba(245, 240, 230, 0.16);
+  --line-mid: rgba(245, 240, 230, 0.3);
+  --text-muted: rgba(245, 240, 230, 0.62);
+  --accent-text: var(--rust-pale);
+  /* Without this, components using --surface (the woven tags) would keep the
+     light paper background and disappear against the navy. */
+  --surface: rgba(245, 240, 230, 0.07);
+}
+
+:root[data-theme='dark'] .site-footer {
+  background: #080d17;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .site-footer {
+    background: #080d17;
+  }
+}
+
+.site-footer a {
+  color: var(--cream);
+}
+
+.site-footer a:hover {
+  color: var(--rust-pale);
+}
+
+.footer__top {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 4rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 820px) {
+  .footer__top {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+.footer__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  max-width: 18ch;
+}
+
+.footer__col h3 {
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 560;
+  margin-bottom: 1.1rem;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: var(--fs-sm);
+}
+
+.footer__links a {
+  text-decoration: none;
+  width: fit-content;
+}
+
+.footer__links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.75rem;
+  border-top: 1.5px dashed var(--line-mid);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.footer__bottom p {
+  max-width: 62ch;
+}

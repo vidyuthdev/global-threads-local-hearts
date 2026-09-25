@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Global Threads, Local Hearts | A student clothing drive for Heart for Monroe</title>
+    <meta
+      name="description"
+      content="A student-run IB CAS clothing drive collecting gently used clothing for Heart for Monroe, a nonprofit serving people facing hunger and homelessness in Monroe, NC."
+    />
+
+    <!-- Favicon: a heart sewn with a cross-stitch -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1524" media="(prefers-color-scheme: dark)" />
+
+    <!-- Social link previews. Update the og:url / og:image host after deploying. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Global Threads, Local Hearts" />
+    <meta property="og:title" content="Global Threads, Local Hearts" />
+    <meta
+      property="og:description"
+      content="Every piece of clothing carries a story. Let’s pass it on. A student IB CAS clothing drive for Heart for Monroe."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Global Threads, Local Hearts, an IB CAS clothing drive" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set the saved theme before paint so there's no flash of the wrong one -->
+    <script>
+      try {
+        var t = localStorage.getItem('gtlh-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header data-site-header></header>
+
+    <noscript>
+      <nav class="noscript-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="cause.html">The Cause</a>
+        <a href="story.html">Our Story</a>
+        <a href="team.html">Team</a>
+        <a href="thanks.html">Gratitude</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </noscript>
+
+    <main id="main" class="shell">
+      <div class="thread-wrap" data-thread aria-hidden="true"></div>
+
+      <!-- ================================================== HERO -->
+      <section class="section hero" data-hero>
+        <div class="container hero__inner">
+          <p class="eyebrow" data-reveal>
+            An IB CAS Project · <span data-text="site.city">Marvin, North Carolina</span>
+          </p>
+
+          <h1 class="hero__title" data-lines>
+            <span class="line"><span>Global</span></span>
+            <span class="line"><span>Threads,</span></span>
+            <span class="line"><span><em>Local</em> Hearts</span></span>
+          </h1>
+
+          <p class="hero__tagline" data-reveal>
+            Every piece of clothing carries a story. Let’s pass it on.
+          </p>
+
+          <div class="btn-row" data-reveal>
+            <a class="btn btn--lg" href="donate.html">
+              Donate Clothes
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--lg btn--ghost" href="story.html">Our Story</a>
+          </div>
+
+          <div class="hero__meta" data-reveal>
+            <p class="hero__scroll">
+              Scroll to follow the thread
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15" /><path d="m6 13 6 6 6-6" /></svg>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== MARQUEE -->
+      <div class="marquee marquee--ink">
+        <div data-render="marquee"></div>
+      </div>
+
+      <!-- ================================================== THE COUNT -->
+      <section class="section" id="impact">
+        <div class="container">
+          <div class="section__head section__head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Where we’re at</p>
+              <h2 data-lines>
+                <span class="line"><span>The count</span></span>
+                <span class="line"><span>so <em>far</em></span></span>
+              </h2>
+            </div>
+            <p class="lede" data-reveal>
+              Every number here is a real bag someone filled. We update this page after each
+              delivery, so it is always behind rather than ahead of the truth.
+            </p>
+          </div>
+
+          <div data-render="stats"></div>
+        </div>
+      </section>
+
+      <!-- ================================================== BENTO -->
+      <section class="section section--alt" id="how">
+        <div class="container">
+          <div class="section__head">
+            <p class="eyebrow" data-reveal>The short version</p>
+            <h2 data-lines>
+              <span class="line"><span>Four things</span></span>
+              <span class="line"><span>worth <em>knowing</em></span></span>
+            </h2>
+          </div>
+
+          <div class="bento" data-reveal-group>
+            <a class="bento__tile bento__tile--wide" href="donate.html" data-reveal>
+              <p class="card__kicker">01 · What we collect</p>
+              <h3>Clean, gently used clothing for every age</h3>
+              <p>
+                Coats and warm layers, jeans, school clothes, shoes with life left in them, and
+                shirts someone could wear to a job interview tomorrow.
+              </p>
+              <span class="tile-foot">
+                See the full list
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+              </span>
+            </a>
+
+            <a class="bento__tile bento__tile--wide bento__tile--ink" href="cause.html" data-reveal>
+              <p class="card__kicker">02 · Where it goes</p>
+              <h3>Straight to Heart for Monroe</h3>
+              <p>
+                Everything we collect is delivered to 104 S Hayne St, where it reaches people
+                facing hunger and homelessness in our own county. Nothing is resold. Nothing
+                leaves the community.
+              </p>
+              <span class="tile-foot">
+                Meet our partner
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+              </span>
+            </a>
+
+            <a class="bento__tile" href="donate.html#help" data-reveal>
+              <p class="card__kicker">03 · How to help</p>
+              <h3>Fill one bag</h3>
+              <p>Or host a bin, run a mini-drive, or just send this page to someone.</p>
+              <span class="tile-foot">
+                Ways in
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+              </span>
+            </a>
+
+            <a class="bento__tile" href="team.html" data-reveal>
+              <p class="card__kicker">04 · Who we are</p>
+              <h3>A handful of students</h3>
+              <p>One CAS project, one season, one very full car trunk.</p>
+              <span class="tile-foot">
+                The team
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+              </span>
+            </a>
+
+            <div class="bento__tile bento__tile--wide bento__tile--accent bento__tile--quote" data-reveal>
+              <p class="bento__quote">
+                We’re not collecting cast-offs.<br />
+                We’re collecting the <em>good</em> stuff.
+              </p>
+              <span class="tile-foot">The rule we sort by</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== HOW IT WORKS -->
+      <section class="section">
+        <div class="container">
+          <div class="section__head section__head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Three steps</p>
+              <h2 data-lines>
+                <span class="line"><span>It really is</span></span>
+                <span class="line"><span>this <em>simple</em></span></span>
+              </h2>
+            </div>
+            <p class="lede" data-reveal>
+              The whole point is that donating should take one evening, not a project plan.
+            </p>
+          </div>
+
+          <div class="ways" data-reveal-group style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+            <article class="way" data-reveal>
+              <p class="card__kicker">Step one</p>
+              <h3>Look in your wardrobe</h3>
+              <p>
+                Find the things you haven’t worn in a year but would still happily lend a friend.
+                That’s the standard.
+              </p>
+            </article>
+            <article class="way" data-reveal>
+              <p class="card__kicker">Step two</p>
+              <h3>Wash, fold, bag, label</h3>
+              <p>
+                Clean and folded donations get handed out the same week. Write the sizes on the
+                outside of the bag.
+              </p>
+            </article>
+            <article class="way" data-reveal>
+              <p class="card__kicker">Step three</p>
+              <h3>Drop it at a bin</h3>
+              <p>
+                Bring it to any of our collection points, or catch us at a collection day and stay
+                in your car.
+              </p>
+            </article>
+          </div>
+
+          <div class="btn-row" style="margin-top:var(--gap)" data-reveal>
+            <a class="btn" href="donate.html">
+              Find a drop-off point
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== PARTNER NOTE -->
+      <section class="section section--tight">
+        <div class="container container--narrow">
+          <div class="seam-mark" style="margin-bottom:clamp(2rem,4vw,3.5rem)" aria-hidden="true">
+            <svg class="seam-mark__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19" /></svg>
+          </div>
+
+          <div class="notice notice--accent" data-render="partner-disclaimer" data-reveal></div>
+        </div>
+      </section>
+
+      <!-- ================================================== CTA -->
+      <section class="section cta">
+        <div class="container cta__inner">
+          <p class="eyebrow" style="color:var(--rust-pale)" data-reveal>Your turn</p>
+          <h2 class="cta__title" data-lines>
+            <span class="line"><span>One bag from you.</span></span>
+            <span class="line"><span>A <em class="em">week of warmth</em></span></span>
+            <span class="line"><span>for someone else.</span></span>
+          </h2>
+          <p data-reveal>
+            You almost certainly own something that would help. Check the accepted list, find your
+            nearest bin, and we’ll do the rest.
+          </p>
+          <div class="btn-row" data-reveal>
+            <a class="btn btn--ink btn--lg" href="donate.html">
+              Donate Clothes
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="contact.html">Get involved</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer data-site-footer></footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

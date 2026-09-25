@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Global Threads, Local Hearts">
+  <title>Global Threads, Local Hearts</title>
+  <rect width="24" height="24" rx="5.5" fill="#F5F0E6" />
+  <g fill="none" stroke="#141F33" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- jacket -->
+    <path
+      d="M8.9 3.6 4.9 5.1a2.9 2.9 0 0 0-1.8 2.3l-.6 4.2 2.4.8V20a1.2 1.2 0 0 0 1.2 1.2h11.6A1.2 1.2 0 0 0 19 20v-7.6l2.4-.8-.6-4.2a2.9 2.9 0 0 0-1.8-2.3l-4-1.5"
+    />
+    <!-- collar + zip -->
+    <path d="M8.9 3.6 12 6.2l3.1-2.6" />
+    <path d="M12 6.2v6.4M12 18.3v2.9" />
+    <!-- heart -->
+    <path
+      d="M12 17.9 9.5 15.4a1.77 1.77 0 0 1 2.5-2.5 1.77 1.77 0 0 1 2.5 2.5Z"
+      fill="#C25B3A"
+      stroke="#C25B3A"
+    />
+  </g>
+</svg>

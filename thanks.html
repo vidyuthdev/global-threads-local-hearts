@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gratitude | Global Threads, Local Hearts</title>
+    <meta
+      name="description"
+      content="The people, families and organizations whose clothing filled our bags, including Goodwill Second Editions in Charlotte, NC."
+    />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1524" media="(prefers-color-scheme: dark)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Global Threads, Local Hearts" />
+    <meta property="og:title" content="Gratitude | Global Threads, Local Hearts" />
+    <meta
+      property="og:description"
+      content="Not one item on this site came from us. These are the people and places whose clothing filled the bags."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      try {
+        var t = localStorage.getItem('gtlh-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header data-site-header></header>
+
+    <noscript>
+      <nav class="noscript-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="cause.html">The Cause</a>
+        <a href="story.html">Our Story</a>
+        <a href="team.html">Team</a>
+        <a href="thanks.html">Gratitude</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </noscript>
+
+    <main id="main" class="shell">
+      <div class="thread-wrap" data-thread aria-hidden="true"></div>
+
+      <!-- ================================================== HEADER -->
+      <section class="page-head" data-hero>
+        <div class="container page-head__inner">
+          <p class="eyebrow" data-reveal>Gratitude</p>
+          <h1 class="page-head__title" data-lines>
+            <span class="line"><span>The people who</span></span>
+            <span class="line"><span>actually <em>filled</em></span></span>
+            <span class="line"><span>the bags.</span></span>
+          </h1>
+          <p class="page-head__lede" data-reveal data-text="thanks.intro">
+            Not one item on this site came from us.
+          </p>
+          <div class="page-head__tags" data-reveal>
+            <span class="woven-tag">100% Community</span>
+            <span class="woven-tag">Made in Marvin</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== NAME WALL -->
+      <section class="section" id="donors">
+        <div class="container">
+          <div class="section__head">
+            <p class="eyebrow" data-reveal>Everyone who gave</p>
+            <h2 data-lines>
+              <span class="line"><span>The <em>wall</em></span></span>
+            </h2>
+          </div>
+
+          <ul class="name-wall" data-render="thanks-people" data-reveal></ul>
+
+          <div class="notice" style="margin-top:clamp(2rem,4vw,3rem);max-width:70ch" data-reveal>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5.5M12 7.8v.4" /></svg>
+            <p data-text="thanks.note">
+              We only name people who have told us they’re happy to be listed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================== ORGANISATIONS -->
+      <section class="section section--alt" id="organizations">
+        <div class="container">
+          <div class="section__head section__head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Shops, schools &amp; businesses</p>
+              <h2 data-lines>
+                <span class="line"><span>Places that</span></span>
+                <span class="line"><span>gave <em>generously</em></span></span>
+              </h2>
+            </div>
+            <p class="lede" data-reveal>
+              Organisations who handed us clothing by the box, or let us put a bin by their
+              door.
+            </p>
+          </div>
+
+          <div class="orgs" data-render="thanks-orgs" data-reveal-group></div>
+        </div>
+      </section>
+
+      <!-- ================================================== GROUPS -->
+      <section class="section" id="groups">
+        <div class="container">
+          <div class="section__head section__head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Mini-drives</p>
+              <h2 data-lines>
+                <span class="line"><span>Groups who ran</span></span>
+                <span class="line"><span>their <em>own</em></span></span>
+              </h2>
+            </div>
+            <p class="lede" data-reveal>
+              Classes, teams and clubs who filled a bag each and handed the whole lot over at
+              once. This is the fastest way a drive grows.
+            </p>
+          </div>
+
+          <ul class="tag-row" data-render="thanks-groups" data-reveal></ul>
+        </div>
+      </section>
+
+      <!-- ================================================== PULL QUOTE -->
+      <section class="section section--tight">
+        <div class="container container--narrow">
+          <div class="seam-mark" style="margin-bottom:clamp(2rem,4vw,3rem)" aria-hidden="true">
+            <svg class="seam-mark__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19" /></svg>
+          </div>
+          <p class="pullquote" data-reveal style="max-width:28ch">
+            A drive is just a lot of people each doing <em>one small thing</em> in the same month.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================== CTA -->
+      <section class="section cta">
+        <div class="container cta__inner">
+          <p class="eyebrow" style="color:var(--rust-pale)" data-reveal>Room on the wall</p>
+          <h2 class="cta__title" data-lines>
+            <span class="line"><span>There’s space here</span></span>
+            <span class="line"><span>for your <em>name</em> too.</span></span>
+          </h2>
+          <p data-reveal>
+            Bring a bag to any collection point and tell us you’d like to be listed, or don’t,
+            and stay anonymous. Both are completely fine.
+          </p>
+          <div class="btn-row" data-reveal>
+            <a class="btn btn--ink btn--lg" href="donate.html">
+              Donate Clothes
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="contact.html">Add or remove a name</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer data-site-footer></footer>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

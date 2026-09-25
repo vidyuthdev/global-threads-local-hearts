@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vite
+
+# Original phone photos. The web-sized versions that the site actually uses
+# live in public/photos/ and are committed. Delete this line if you'd rather
+# keep the full-resolution originals in the repo too (adds ~25 MB).
+pictures/
